@@ -14,7 +14,6 @@ return new class extends Migration
      */
     public function up()
     {
-        $asd="Hammam Alageed";
         Schema::create('users', function (Blueprint $table) {
             $table->user_id();
             $table->string('user_name');
