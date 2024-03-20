@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('category_name_en');
             $table->string('category_name_ar');
             $table->string('category_image');
+            $table->count();
+            $table->has_service();
             $table->time_stamp();
         });
     }

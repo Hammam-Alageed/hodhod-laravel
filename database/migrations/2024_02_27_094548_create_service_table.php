@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('service_name_en');
             $table->string('service_name_ar');
             $table->service_count();
+            $table->has_subservice();
             $table->string('service_image');
             $table->time_stamp();
         });

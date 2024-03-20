@@ -9,7 +9,7 @@ use App\Models\Category;
 class CategoryController extends Controller
 {
    
-    
+    use ApiResponseTrait;
 
      protected $category;
      public function __construct(){
@@ -19,14 +19,22 @@ class CategoryController extends Controller
      public function index()
     {
         //
-        return $this->category->all();
+        //return $this->category->all();
+           return response()->json(['message' => 'success','status' => 200,  'data' => $this->category->all()]);
+        //return $this->apiResponse(message:'succsess',status :200 ,data :$category);
+        //return $this->apiResponse($category,'ok',200);
     }
     
-
    
     public function store(Request $request)
     {
         //
+
+//         $data = [];
+// $data['Total Amount'] = Invoice::where('status', 'Completed')->sum('amount');
+// $data['Count'] = Invoice::where('status', 'Completed')->count();
+// $data['Activity'] = 'Invoices';
+
         return $this->category->create($request->all());
     }
 
@@ -35,6 +43,7 @@ class CategoryController extends Controller
     {
         //
         return $category = $this->category->find($id);  
+
     }
 
    
@@ -43,7 +52,8 @@ class CategoryController extends Controller
         //
         $category = $this->category->find($id);
         $category->update($request->all());
-        return $category;
+        return response()->json(['message' => 'Category updated successfully', 'category' => $category]);
+
     }
 
    
@@ -53,4 +63,5 @@ class CategoryController extends Controller
         $category = $this->category->find($id);
         return $category->delete();   
     }
+
 }

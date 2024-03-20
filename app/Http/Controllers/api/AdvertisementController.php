@@ -19,7 +19,9 @@ class AdvertisementController extends Controller
     public function index()
     {
         //
-        return $this->advertisement->all();
+        // return $this->advertisement->all();
+        return response()->json(['message' => 'success','status' => 200,  'data' => $this->advertisement->all()]);
+
 
     }
 

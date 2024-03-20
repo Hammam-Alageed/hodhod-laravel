@@ -15,6 +15,7 @@ class Service extends Model
           'service_name_en',
           'service_name_ar',
           'service_count',
+          'has_subservice', 
           'service_image',
           'time_stamp',
       ];

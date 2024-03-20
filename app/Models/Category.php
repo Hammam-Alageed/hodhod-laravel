@@ -13,6 +13,8 @@ class Category extends Model
           'category_name_en',
           'category_name_ar',
           'category_image',
+          'count',
+          'has_service',
           'time_stamp',
       ];
     use HasFactory;

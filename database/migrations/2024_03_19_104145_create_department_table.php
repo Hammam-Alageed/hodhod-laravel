@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->user_id();
-            $table->string('user_name');
-            $table->user_phone->unique();
-            $table->string('gender');
-            $table->string('user_address');
+        Schema::create('department', function (Blueprint $table) {
+            $table->dept_detail_id();
+            $table->subSubService_id();
+            $table->string('dept_detail_name');
+            $table->string('dept_detail_price');
+            $table->string('dept_detail_offer');
+            $table->string('dept_detail_hodoffer');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('department');
     }
 };

@@ -5,6 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\CategoryController;
 use App\Http\Controllers\api\AdvertisementController;
 use App\Http\Controllers\api\ServiceController;
+use App\Http\Controllers\api\SubserviceController;
+use App\Http\Controllers\api\SubsubserviceController;
+use App\Http\Controllers\api\DepartmentController;
+use App\Http\Controllers\api\Department_detailController;
+use App\Http\Controllers\api\CityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +27,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+
+// Route::put('/categories/{id}', 'CategoryController@update');
+
 Route::apiResource('/category', CategoryController::class);
 Route::apiResource('/advertisement', AdvertisementController::class);
 Route::apiResource('/service', ServiceController::class);
+Route::apiResource('/subservice', SubserviceController::class);
+Route::apiResource('/subsubservice', SubsubserviceController::class);
+Route::apiResource('/department', DepartmentController::class);
+Route::apiResource('/department_detail', Department_detailController::class);
+Route::apiResource('/city', CityController::class);
+
+
+

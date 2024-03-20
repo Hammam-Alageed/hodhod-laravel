@@ -7,7 +7,7 @@ use App\Models\Service;
 
 class ServiceController extends Controller
 {
-  
+
     protected $service;
     public function __construct(){
         $this->service = new Service();
@@ -16,7 +16,9 @@ class ServiceController extends Controller
     public function index()
     {
         //
-        return $this->service->all();
+        // return $this->service->all();
+        return response()->json(['message' => 'success','status' => 200,  'data' => $this->service->all()]);
+
 
     }
 
@@ -25,6 +27,8 @@ class ServiceController extends Controller
     {
         //
         return $this->service->create($request->all());
+        return response()->json(['message' => 'success','status' => 200,  'data' => $this->service->all()]);
+
 
     }
 
