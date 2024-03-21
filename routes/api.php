@@ -40,7 +40,7 @@ Route::apiResource('/department_detail', Department_detailController::class);
 Route::apiResource('/city', CityController::class);
 
 //retrive all data from server using post method
-Route::post('/getService', [ServiceController::class, 'getService']);
+Route::get('/getService/{id}', [ServiceController::class, 'index']);
 
 
 
