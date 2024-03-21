@@ -25,8 +25,7 @@ class CityController extends Controller
     public function store(Request $request)
     {
         //
-        // return $this->city->create($request->all());
-             return response()->json(['message' => 'success','status' => 200,  'data' => $this->city->create($request->all())]);
+        return $this->city->create($request->all());
     }
 
    

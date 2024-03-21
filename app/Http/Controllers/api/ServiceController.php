@@ -17,8 +17,8 @@ class ServiceController extends Controller
     {
         //
         // return $this->service->all();
-        return response()->json(['message' => 'success','status' => 200,  'data' => $this->service->all()]);
-
+         
+        // return response()->json(['message' => 'success','status' => 200,  'data' => $this->service->all()]);
 
     }
 
@@ -27,9 +27,6 @@ class ServiceController extends Controller
     {
         //
         return $this->service->create($request->all());
-        return response()->json(['message' => 'success','status' => 200,  'data' => $this->service->all()]);
-
-
     }
 
    
@@ -57,6 +54,29 @@ class ServiceController extends Controller
         $service = $this->service->find($id);
         return $service->delete();
     }
+
+//this api to get service where category_id from mobile = category_id in table
+
+    public function getService(Request $req)
+    {
+        // validate inputs
+        $rules = [
+            'category_id' => 'required',
+        ];
+        $req->validate($rules);
+        // find user email in users table
+        $service =  service::where('category_id', $req->category_id)->first();
+        // if user email found and password is correct
+        if ($service) {
+        
+             return response()->json(['message' => 'success','status' => 200,  'data' => $this->service->all()]);
+
+        }
+        $response = ['message' => 'no data'];
+        return response()->json($response, 400);
+    }
+    
+
 }
 
 
