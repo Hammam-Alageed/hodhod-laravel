@@ -13,21 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('advertisement', function (Blueprint $table) {
-            $table->advertise_id();
+        Schema::create('ads', function (Blueprint $table) {
+            $table->id();
             $table->string('advertise_name_en');
             $table->string('advertise_name_ar');
             $table->string('advertise_image');
-            $table->type();
-            $table->main_page();
-            $table->category_id();
-            $table->service();
-            $table->subservice();
-            $table->subsubservice();
-            $table->time_stamp();
+            $table->boolean('type');
+            $table->boolean('main_page');
+            $table->foreignId('category_id')->constrained();
+            $table->foreignId('service_id')->constrained();
+            $table->foreignId('subservice_id')->constrained();
+            $table->foreignId('subsubservice_id')->constrained();
         });
     }
-    
+
     /**
      * Reverse the migrations.
      *
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('advertisement');
+        Schema::dropIfExists('ads');
     }
 };

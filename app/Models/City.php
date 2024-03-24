@@ -8,11 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
 
-    protected $table = 'city';
-    protected $primaryKey = 'city_id';
+   
      protected $fillable = [
           'city_name',
-          'time_stamp',
       ];
       
     use HasFactory;

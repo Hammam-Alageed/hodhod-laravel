@@ -6,21 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    
-    
+
+
     public function up()
     {
-        Schema::create('subsubservice', function (Blueprint $table) {
-            $table->subSubService_id();
-            $table->subService_id();
+        Schema::create('subsubservices', function (Blueprint $table) {
+            // $table->increments('subSubService_id');
+            $table->id();
+            $table->foreignId('subservice_id')->constrained();
             $table->string('work_time');
             $table->string('department');
             $table->string('department_offer');
             $table->string('department_hodhod_offer');
             $table->string('department_rates');
-            $table->count();
-            $table->timestamps();
-
+            $table->integer('count');
         });
     }
 
@@ -34,4 +33,3 @@ return new class extends Migration
         Schema::dropIfExists('subsubservice');
     }
 };
-

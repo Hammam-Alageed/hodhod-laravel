@@ -14,19 +14,19 @@ return new class extends Migration
     public function up()
     {
 
-        Schema::create('subservice', function (Blueprint $table) {
-            $table->subService_id();
-            $table->service_id();
+        Schema::create('subservices', function (Blueprint $table) {
+            // $table->increments('subService_id');
+            $table->id();
+            $table->foreignId('service_id')->constrained();
             $table->string('subService_name_en');
             $table->string('subService_name_ar');
             $table->string('subService_desc');
-            $table->subService_count();
+            $table->integer('subService_count');
             $table->string('subService_image');
             $table->string('subService_address');
             $table->string('subService_latitude');
             $table->string('subService_longitude');
             $table->string('subService_rates');
-            $table->timestamps();
         });
     }
 
