@@ -13,11 +13,13 @@ class Advertisement extends Model
           'advertise_name_en',
           'advertise_name_ar',
           'advertise_image',
+          'type',
+          'main_page',
+          'category_id',
+          'service',
+          'subservice',
+          'subsubservice',
           'time_stamp',
       ];
     use HasFactory;
 }
-
-
-
-

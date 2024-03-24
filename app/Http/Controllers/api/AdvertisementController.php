@@ -61,6 +61,42 @@ class AdvertisementController extends Controller
         $advertisement = $this->advertisement->find($id);
         return $advertisement->delete();  
     }
+
+    //get image for home page
+    public function advertisementCate()
+    {
+
+        $advertisement =  advertisement::where('main_page', '1');
+        // if category_id
+        if ($advertisement) {
+             return response()->json(['message' => 'success','status' => 200,  'data' => $this->advertisement->all()]);
+
+        }else{
+              return response()->json(['message' => 'no data','status' => 200,  'data' => null]);
+        }
+       
+        return response()->json($response, 400);
+        
+    }
+
+
+       //get image for home page
+       public function advertisementService($category_id,$service_id)
+       {
+           $advertisement =  advertisement::where('main_page', $category_id)->first();
+           // if category_id
+           if ($advertisement) {
+                return response()->json(['message' => 'success','status' => 200,  'data' => $this->advertisement->all()]);
+   
+           }else{
+                 return response()->json(['message' => 'no data','status' => 200,  'data' => null]);
+           }
+          
+           return response()->json($response, 400);
+           
+       }
+    
+
 }
 
 

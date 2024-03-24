@@ -39,8 +39,22 @@ Route::apiResource('/department', DepartmentController::class);
 Route::apiResource('/department_detail', Department_detailController::class);
 Route::apiResource('/city', CityController::class);
 
-//retrive all data from server using post method
+//recive category id from mobile  and get service
 Route::get('/getService/{id}', [ServiceController::class, 'index']);
+
+
+//recive category id from mobile  and get service
+Route::get('/advertisementCate', [AdvertisementController::class ,'advertisementCate']);
+
+
+
+
+
+
+
+
+
+Route::get('/advertisementService/{id}/{id}', [AdvertisementController::class ,'advertisementService']);
 
 
 

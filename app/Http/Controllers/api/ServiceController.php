@@ -15,34 +15,19 @@ class ServiceController extends Controller
 
     public function index($id)
     {
-        //
-        // return $this->service->all();
-         
-        // return response()->json(['message' => 'success','status' => 200,  'data' => $this->service->all()]);
-
-
-  // // validate inputs
-        // $rules = [
-        //     'category_id' => 'required',
-        // ];
-        // $req->validate($rules);
-        // find user email in users table
+    
         $service =  service::where('category_id', $id)->first();
         // if category_id
         if ($service) {
-        
              return response()->json(['message' => 'success','status' => 200,  'data' => $this->service->all()]);
 
         }else{
-            return response()->json(['message' => 'no data','status' => 200,  'data' => null]);
+              return response()->json(['message' => 'no data','status' => 200,  'data' => null]);
         }
        
         return response()->json($response, 400);
     }
     
-
-    
-
    
     public function store(Request $request)
     {
@@ -80,21 +65,7 @@ class ServiceController extends Controller
 
     public function getService($id)
     {
-    //     // // validate inputs
-    //     // $rules = [
-    //     //     'category_id' => 'required',
-    //     // ];
-    //     // $req->validate($rules);
-    //     // find user email in users table
-    //     $service =  service::where('category_id', $id)->first();
-    //     // if category_id
-    //     if ($service) {
-        
-    //          return response()->json(['message' => 'success','status' => 200,  'data' => $this->service->all()]);
-
-    //     }
-    //     $response = ['message' => 'no data'];
-    //     return response()->json($response, 400);
+   
      }
     
 

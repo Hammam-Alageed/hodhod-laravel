@@ -18,10 +18,16 @@ return new class extends Migration
             $table->string('advertise_name_en');
             $table->string('advertise_name_ar');
             $table->string('advertise_image');
+            $table->type();
+            $table->main_page();
+            $table->category_id();
+            $table->service();
+            $table->subservice();
+            $table->subsubservice();
             $table->time_stamp();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *
