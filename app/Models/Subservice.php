@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subservice extends Model
 {
-    protected $table = 'subservice';
-    protected $primaryKey = 'subService_id';
+   
      protected $fillable = [
           'service_id',
           'subService_name_en',
@@ -20,7 +19,7 @@ class Subservice extends Model
           'subService_latitude',
           'subService_longitude',
           'subService_rates',
-          'time_stamp',
+          
       ];
 
     use HasFactory;

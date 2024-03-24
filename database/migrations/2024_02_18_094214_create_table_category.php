@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('table_category', function (Blueprint $table) {
-            $table->category_id();
-            $table->special_id();
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->integer("special_id");
             $table->string('category_name_en');
             $table->string('category_name_ar');
             $table->string('category_image');
-            $table->count();
-            $table->has_service();
-            $table->time_stamp();
+            $table->integer('count');
+            $table->boolean('has_service');
         });
     }
 
@@ -35,5 +34,3 @@ return new class extends Migration
         Schema::dropIfExists('table_category');
     }
 };
-
-

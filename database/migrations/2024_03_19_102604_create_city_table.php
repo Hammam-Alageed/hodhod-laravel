@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('city', function (Blueprint $table) {
-            $table->city_id();
-            $table->city_name();
-            $table->timestamps();
+        Schema::create('cities', function (Blueprint $table) {
+            // $table->increments('city_id');
+            $table->id();
+            $table->string('city_name');
+           
         });
     }
 

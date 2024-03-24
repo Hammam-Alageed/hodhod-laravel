@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('service', function (Blueprint $table) {
-            $table->service_id();
-            $table->category_id();
+        Schema::create('services', function (Blueprint $table) {
+            // $table->increments('service_id');
+            $table->id();
+            $table->foreignId('category_id')->constrained();
             $table->string('service_name_en');
             $table->string('service_name_ar');
-            $table->service_count();
-            $table->has_subservice();
+            $table->integer('service_count');
+            $table->boolean('has_subservice');
             $table->string('service_image');
-            $table->time_stamp();
         });
     }
 
@@ -35,4 +35,3 @@ return new class extends Migration
         Schema::dropIfExists('service');
     }
 };
-
